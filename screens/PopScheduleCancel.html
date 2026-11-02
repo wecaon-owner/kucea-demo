@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[관리자] ㊸ 예약 취소 창 — 임시 저장으로</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>@font-face{font-family:Pretendard;src:url(../assets/PretendardVariable.woff2) format('woff2');font-weight:45 920;font-display:swap}
+body{margin:0}
+a{color:#103070}a:hover{color:#0a2050}
+/*cv-mobile*/
+@media (max-width: 720px){
+  header > div:first-child{padding: 10px 16px 0 !important; gap: 8px !important}
+  header > div:first-child > a{gap: 8px !important; min-width: 0}
+  header > div:first-child img{width: 32px !important; height: 32px !important}
+  header > div:first-child > a > span:first-of-type{font-size: 16px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis}
+  header > div:first-child > a > span:nth-of-type(2){display: none !important}
+  header > div:first-child > span{white-space: nowrap; font-size: 0 !important; flex: 0 0 auto}
+  header > div:first-child > span > a{font-size: 13px !important; margin-left: 0 !important}
+  header > div:first-child > span > a:not(:last-child){display: none}
+  nav[aria-label="관리자 메뉴"]{padding: 0 8px !important; gap: 0 !important; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch}
+  nav[aria-label="관리자 메뉴"]::-webkit-scrollbar{display: none}
+  nav[aria-label="관리자 메뉴"] > a{flex: 0 0 auto; white-space: nowrap; padding: 12px 10px !important; font-size: 15px !important}
+  main{padding: 16px 16px 40px !important; gap: 16px !important}
+  main > div[style*="grid-template-columns: repeat(6"]{grid-template-columns: 1fr 1fr !important}
+  input[type="text"], input[type="email"], input[type="password"], input[type="date"], select, textarea{font-size: 16px !important}
+  main > h1, main h1{font-size: 22px !important}
+  div[role="tablist"]{overflow-x: auto; scrollbar-width: none}
+  div[role="tablist"] > a, div[role="tablist"] > button{flex: 0 0 auto; white-space: nowrap}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"]{flex-wrap: wrap !important; padding: 12px !important; gap: 8px !important; margin-top: 12px !important}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] > select,
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] > input,
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] > div{flex: 1 1 100% !important; width: 100% !important; max-width: none !important; min-width: 0 !important}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] > button{flex: 1 1 auto !important; margin-left: 0 !important}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] div, [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] span[style*="display: flex"]{flex-wrap: wrap !important; max-width: 100%; flex: 1 1 100% !important}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] input[type="text"], [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] select{flex: 1 1 120px !important; width: auto !important; max-width: 100% !important; min-width: 0 !important}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] > input[type="text"], [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] > select{flex: 1 1 100% !important}
+  [style*="background: #f5f7fb; border: 1px solid #e4e8f0"] button[style*="text-decoration: underline"]{flex: 0 0 auto !important; margin-left: auto !important}
+  h2[style*="display: flex"]{flex-wrap: wrap !important; row-gap: 8px !important}
+  h2[style*="display: flex"] > span[style*="margin-left: auto"]{flex: 1 1 100% !important; margin-left: 0 !important; justify-content: flex-end; flex-wrap: wrap; padding-bottom: 2px}
+  h2[style*="display: flex"] > span[style*="margin-left: auto"] > button{flex: 1 1 auto}
+  main > div[style*="display: flex"][style*="flex-wrap: wrap"] > aside,
+  main > div[style*="display: flex"][style*="flex-wrap: wrap"] > section,
+  main > div[style*="display: flex"][style*="flex-wrap: wrap"] > div{flex: 1 1 100% !important; max-width: 100% !important; position: static !important; width: auto !important}
+  [aria-label="휴대폰에서 보이는 모습"] > div{width: 100% !important; max-width: 360px}
+  div[style*="overflow-x: auto"]{margin: 0 -16px; padding: 0 16px}
+  div:has(> table), section:has(> table){overflow-x: auto; -webkit-overflow-scrolling: touch}
+  table[style*="table-layout: fixed"]{min-width: 760px}
+  table[style*="table-layout: fixed"]:not(:has(thead th:first-child:empty)):not(:has(thead th:first-child input)) thead th:first-child,
+  table[style*="table-layout: fixed"]:not(:has(thead th:first-child:empty)):not(:has(thead th:first-child input)) tbody td:first-child{position: sticky; left: 0; z-index: 1; background: #ffffff; box-shadow: 1px 0 0 #e4e8f0}
+  table[style*="table-layout: fixed"] thead th:first-child{background: #eef1f6}
+  tr[style*="#e9eef7"] > td:first-child{background: #e9eef7}
+  table:not(:has(thead)):has(th[scope="row"]), table:not(:has(thead)):has(th[scope="row"]) > tbody{display: block; width: 100% !important}
+  table:not(:has(thead)):has(th[scope="row"]) tr{display: flex; flex-wrap: wrap}
+  table:not(:has(thead)):has(th[scope="row"]) th[scope="row"]{flex: 0 0 104px; box-sizing: border-box; width: auto !important; white-space: normal !important; padding: 10px 12px !important}
+  table:not(:has(thead)):has(th[scope="row"]) td{flex: 1 1 200px; min-width: 0; box-sizing: border-box; padding: 10px 12px !important}
+  [style*="clip: rect(0 0 0 0)"]{left: 0 !important; top: 0 !important}
+  nav[aria-label="쪽 이동"]{gap: 2px !important}
+  footer > div{padding: 14px 16px !important; font-size: 13px !important}
+  [role="dialog"]{width: calc(100vw - 16px) !important; max-width: 100%}
+  [role="dialog"] select, [role="dialog"] input[type="text"], [role="dialog"] textarea{width: 100% !important; max-width: 100%}
+  [role="dialog"] th[scope="row"]{width: 96px !important; white-space: normal !important}
+  div[style*="rgba("][style*="width:"]{width: 100vw !important; min-height: 100vh; height: auto !important; padding: 8px !important; align-items: flex-start !important}
+  div[style*="rgba("] > div[style*="width:"]{width: calc(100vw - 16px) !important; max-width: 100%}
+  div[style*="rgba("] select, div[style*="rgba("] input[type="text"], div[style*="rgba("] textarea{width: 100% !important; max-width: 100%}
+  div[style*="rgba("] th[scope="row"]{width: 96px !important; white-space: normal !important}
+  div[style*="rgba("] [style*="white-space: nowrap"]{white-space: normal !important}
+}
+body{display:flex;justify-content:center;align-items:flex-start;min-height:100vh;background:#e9ecf2}
+</style>
+</head>
+<body>
+<div style="width: 760px; min-height: 600px; box-sizing: border-box; background: rgba(24,24,72,0.45); display: flex; align-items: center; justify-content: center; font-family: Pretendard, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; color: #161a25; font-size: 14px; line-height: 1.5;">
+<div aria-label="예약 취소" role="dialog" style="width: 620px; box-sizing: border-box; background: #ffffff; border: 1px solid #98a3b8; padding: 0 0 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.25); border-radius: 4px; overflow: hidden;">
+<div style="padding: 14px 20px; border-bottom: 2px solid #103070;"><h2 style="margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.005em;">예약 취소</h2></div><div style="padding: 0 20px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 600;"><span style="color: #3a4253; font-weight: 400; white-space: nowrap;">공지</span> 11월 원부조회 서비스 정기 점검 안내</p>
+<div style="display: flex; gap: 16px; padding: 12px 0; border-top: 1px solid #e4e8f0; border-bottom: 1px solid #e4e8f0;"><span style="flex: 0 0 120px; color: #6b7689;">예약</span><span style="color: #161a25;">2026-11-02 (월) 09:00 보냄 예정·문자도 함께</span></div>
+<p style="margin: 0; color: #6b7689;">취소한 글은 임시 저장으로 옮겨지며, 회원사에게는 아무것도 가지 않습니다.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px;"><button style="height: 40px; padding: 0 24px; border: 1px solid #c2cad9; border-radius: 4px; background: #ffffff; color: #3a4253; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; white-space: nowrap;" type="button">돌아가기</button><button style="height: 40px; padding: 0 24px; border: 0; border-radius: 4px; background: #103070; color: #ffffff; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; white-space: nowrap;" type="button">예약 취소</button></div></div>
+</div>
+</div>
+
+<script>
+(function(){var P={"예약 취소": "AdminNoticeDrafts", "로그아웃": "AdminLogin", "(사)한국중고차수출산업협회업무시스템 관리자": "AdminHome", "협회 관리자": "AdminHome"},L={"원부조회": "Main", "공지사항": "Notice", "자료실": "Library", "회원사 정보": "Member", "조회 기록": "History", "조회": "Main", "목록으로": "Notice", "승인 관리": "AdminApprovals", "회원사": "AdminMembers", "공지·공문": "AdminNotice", "통계": "AdminStats", "신청 보기": "AdminApprovalDetail", "반려": "PopReject", "이용 정지": "PopSuspend", "회원 해지": "PopTerminate", "이용 정지 풀기": "AdminMemberDetail", "지정 PC 풀기": "PopPCRelease", "새 글 쓰기": "AdminNoticeWrite", "확인 보기": "AdminNoticeReads", "읽음 보기": "AdminNoticeReads", "보고서 내려받기": "PopReport", "파일 바꾸기": "PopLibraryVersion", "종류 관리": "PopLibraryTypes", "새 자료 등록": "PopLibraryNew", "설명 요청": "PopExplain", "설명 보기": "PopExplainView", "링크 다시 보내기": "PopResendLink", "승인 취소": "PopApprovalCancel", "문자 보내기": "PopSmsBulk", "예약 취소": "PopScheduleCancel", "수정": "PopScheduleEdit", "조건 고르기": "PopRecipients", "회원 가입 신청": "Signup", "로그인": "Login", "로그인하러 가기": "Login", "비밀번호 찾기": "FindAccount", "이메일 찾기": "FindAccount", "이 PC로 바꾸기 신청": "PopPC", "PC 바꾸기 신청": "PopPC", "사업자번호 바꾸기 신청": "PopBizNo", "회원 탈퇴": "PopWithdraw", "원부인쇄": "Print", "인쇄": "Print", "다시 보기": "Main", "전체 조회 기록 보기": "History", "가입 신청": "Pending", "점검 안내 보기": "Notice", "살펴볼 회원사": "AdminHistoryFlag", "내려받기 기록": "AdminHistoryDownloads", "전체 조회": "AdminHistory", "지정 PC 승인": "AdminPC", "가입 승인": "AdminApprovals", "뺀 자료": "AdminLibraryRemoved", "보이는 자료": "AdminLibrary", "취소": "__back", "닫기": "__back", "돌아가기": "__back", "목록": "AdminMembers", "조회 기록 보기": "AdminHistory", "신청하기": "Pending", "이 PC를 지정 PC로 신청": "Pending", "공지사항 보기": "Notice", "확인했습니다": "Notice", "결과 보기": "Main", "재고 등록하러 가기": "Main", "비밀번호 만들기": "Login", "비밀번호 바꾸기": "Login", "새 링크 받기": "Login", "국세청 상태 다시 확인": "Main", "다시 조회": "Main", "고른 3곳 회원 해지": "PopTerminateBulk", "3곳 회원 해지": "AdminMembers", "3곳에 문자 보내기": "AdminMembers", "승인": "AdminApprovals", "고른 2건 승인": "AdminApprovals", "공문 보내기": "PopNoticeSend", "보내기": "AdminNotice", "공지 올리기": "AdminNotice", "정정 공문 보내기": "AdminNotice", "임시 저장": "AdminNotice", "점검 등록": "AdminMaintenance", "기준 저장": "AdminHistoryFlag", "이상 없음": "AdminHistoryFlag", "설명 요청 보내기": "AdminHistoryFlag", "1,898곳에 다시 알리기": "AdminNoticeReads", "1,184곳으로 정하기": "AdminNoticeWrite", "예약 바꾸기": "AdminNotice", "등록": "AdminLibrary", "저장": "AdminLibrary", "다시 넣기": "AdminLibrary", "기록 보기": "AdminHistory", "처리 기록 모두 보기": "AdminApprovalsLog", "미리 보기": "AdminHistoryFlag", "답변 보내기": "Member", "연락처 수정": "Member", "바꾸기": "Member", "지정 PC 등록 방법": "Library", "원부조회 이용 수칙": "Library", "협회 홈페이지로 가기": "Login"},A={"자료실": "AdminLibrary", "목록": "AdminMembers", "보낸 글": "AdminNotice", "정정 공문 쓰기": "AdminNoticeCorrection", "원래 공문 보기": "AdminNoticeReads", "다시 설명 요청": "PopExplain", "내용 고치기": "AdminNoticeWrite", "고른 1건 승인": "AdminApprovals", "고르기 취소": "AdminMembers", "내려받기": "PopMembersDownload", "임시 저장": "AdminNoticeDrafts", "처리 기록": "AdminApprovalsLog", "이어 쓰기": "AdminNoticeWrite", "조회 기록": "AdminHistory", "회원사": "AdminMembers", "로그인": "Login", "취소": "__back", "이용 정지": "PopSuspend", "반려": "PopReject", "승인": "AdminApprovals", "수정": "PopScheduleEdit"},M={"로그인": "Main", "조회": "Main", "가입 신청": "Pending", "이 PC로 바꾸기 신청": "PopPC", "답변": "MemberExplain"},admin=true;function go(t){t=t.replace(/\s+/g,' ').trim();t=t.replace(/\s*\d+$/,'');t=t.replace(/[\s\d,]+$/,'');var k=P[t]||(admin&&A[t])||(!admin&&M[t])||L[t];if(!k){for(var q in P){if(t.indexOf(q)===0&&q.length>2){k=P[q];break;}}}if(!k)return false;if(k==='__back'){history.back();return true;}location.href=k+'.html';return true;}
+document.addEventListener('click',function(e){var el=e.target.closest('a,button');if(!el)return;if(el.tagName==='A'&&el.getAttribute('href')!=='#'&&el.getAttribute('href'))return;var t=el.textContent||'';if(go(t)){e.preventDefault();}else if(el.tagName==='A'){e.preventDefault();}});
+window.addEventListener('load',function(){try{parent.postMessage({screen:location.pathname.split('/').pop().replace('.html','')},'*');}catch(x){}});})();
+</script>
+</body>
+</html>

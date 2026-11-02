@@ -45,7 +45,9 @@ a{color:#103070}a:hover{color:#0a2050}
   [aria-label="휴대폰에서 보이는 모습"] > div{width: 100% !important; max-width: 360px}
   div[style*="overflow-x: auto"]{margin: 0 -16px; padding: 0 16px}
   div:has(> table), section:has(> table){overflow-x: auto; -webkit-overflow-scrolling: touch}
-  table[style*="table-layout: fixed"]{min-width: 760px}
+  table[style*="table-layout: fixed"]{table-layout: auto !important; width: auto !important; min-width: 100%}
+  table[style*="table-layout: fixed"] th, table[style*="table-layout: fixed"] td{white-space: nowrap; width: auto !important}
+  table[style*="table-layout: fixed"] th[style*="width: 20px"]{width: 20px !important}
   table[style*="table-layout: fixed"]:not(:has(thead th:first-child:empty)):not(:has(thead th:first-child input)) thead th:first-child,
   table[style*="table-layout: fixed"]:not(:has(thead th:first-child:empty)):not(:has(thead th:first-child input)) tbody td:first-child{position: sticky; left: 0; z-index: 1; background: #ffffff; box-shadow: 1px 0 0 #e4e8f0}
   table[style*="table-layout: fixed"] thead th:first-child{background: #eef1f6}
